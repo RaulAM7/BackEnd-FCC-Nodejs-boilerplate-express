@@ -45,7 +45,6 @@ app.get("/:word/echo", (req, res) =>
 
 
 
-
 // Rutas
 // Ruta de Home
 app.get("/", (req, res) => {
@@ -62,6 +61,38 @@ app.get("/json", (req, res) => {
     res.json({ "message": responseMessage })
 })
 
+
+
+
+// Rutas de prueba para trastear
+
+app.get("/about-us", (req, res) => {
+    res.send('Página About us')
+})
+
+
+app.get("/:slurg", (req, res) => {
+
+    const slurg = req.params.slurg
+
+    res.send(`El slurg es: ${slurg}`)
+})
+
+
+
+app.get("/user/:id", (req, res) => 
+{
+    const userId = req.params.id
+
+    res.json( {id: userId, name: `Usuario ${userId}`}  )
+})
+
+
+
+
+app.listen(3000, () => {
+    console.log('Servidor escuchando en el puerto 3000...');
+});
 
 
 module.exports = app;
